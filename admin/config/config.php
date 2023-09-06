@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli("localhost","u950735164_perfume","Kingdomvn@123","u950735164_perfume");
+     $mysqli = new mysqli("kingdomvn.store","u950735164_perfume","Kingdomvn@123","u950735164_perfume");
     // $mysqli = new mysqli("ble5mmo2o5v9oouq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","z5t36fydvhu88i39","qe3ed1us16l5u4wn","t65c51c1bo351q6m");
     
     // Check connection
