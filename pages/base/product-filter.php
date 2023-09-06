@@ -270,7 +270,7 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                             <?php
                                             if ($row['product_sale'] > 0) {
                                             ?>
-                                                <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
+                                                <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' $' ?></del>
 
                                             <?php
                                             }

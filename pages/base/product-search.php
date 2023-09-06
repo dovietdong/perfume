@@ -87,7 +87,7 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                             </span>
                             <a href="index.php?page=product_detail&product_id=<?php echo $row['product_id'] ?>">
                                 <div class="product__price align-center">
-                                    <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
+                                    <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' $' ?></del>
                                     <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
                                 </div>
                             </a>

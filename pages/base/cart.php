@@ -63,7 +63,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="cart__total h4"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' ₫' ?></div>
+                                <div class="cart__total h4"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?></div>
                             </div>
                         <?php
 
@@ -96,7 +96,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="cart__total h4 opacity-50"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' ₫' ?></div>
+                                <div class="cart__total h4 opacity-50"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?></div>
                             </div>
                     <?php
                         }
@@ -106,7 +106,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
             </div>
             <div class="cart__footer w-100 h-100">
                 <div class="cart__footer--total h4">
-                    Tổng tiền: <?php echo number_format((float) $total) . '₫' ?>
+                    Tổng tiền: <?php echo number_format((float) $total) . '$' ?>
                 </div>
                 <p class="cart__footer--context">
                     Thuế và phí vận chuyển được tính khi thanh toán

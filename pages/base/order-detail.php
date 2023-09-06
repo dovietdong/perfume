@@ -59,7 +59,7 @@ $order = mysqli_fetch_array(mysqli_query($mysqli, "SELECT * FROM orders WHERE  o
                                 <div class="checkout__name flex-1">
                                     <h3 class="h6"><?php echo $cart_item['product_name'] ?></h3>
                                 </div>
-                                <div class="h6 checkout__price"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' ₫' ?></div>
+                                <div class="h6 checkout__price"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?></div>
                             </div>
                         <?php
                         }
@@ -69,11 +69,11 @@ $order = mysqli_fetch_array(mysqli_query($mysqli, "SELECT * FROM orders WHERE  o
                     <table class="w-100 mg-t-20">
                         <tr>
                             <td class="h6">Tạm tính:</td>
-                            <td class="h6 text-right"><?php echo number_format((float) $total) . '₫' ?></td>
+                            <td class="h6 text-right"><?php echo number_format((float) $total) . '$' ?></td>
                         </tr>
                         <tr>
                             <td class="h6">Giảm giá</td>
-                            <td class="h6 text-right"> 0₫</td>
+                            <td class="h6 text-right"> 0$</td>
                         </tr>
                         <tr>
                             <td class="h6">Phí vận chuyển</td>
@@ -83,7 +83,7 @@ $order = mysqli_fetch_array(mysqli_query($mysqli, "SELECT * FROM orders WHERE  o
 
                     <div class="checkout__bottom d-flex align-center space-between">
                         <h4 class="h4">Tổng tiền:</h4>
-                        <span class="h4 checkout__total"><?php echo number_format((float) $total) . '₫' ?></span>
+                        <span class="h4 checkout__total"><?php echo number_format((float) $total) . '$' ?></span>
                     </div>
                 </div>
             </div>

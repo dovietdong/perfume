@@ -32,14 +32,14 @@ $query_order_list = mysqli_query($mysqli, $sql_order_list);
                                 <h3 class="cart__name h4"><?php echo $order_detail['product_name'] ?></h3>
                                 <span class="cart__quantity h6 d-block">x <?php echo $order_detail['product_quantity'] ?></span>
                             </div>
-                            <div class="h5 cart__price"><?php echo number_format($order_detail['product_price']) ?>₫</div>
+                            <div class="h5 cart__price"><?php echo number_format($order_detail['product_price']) ?>$</div>
                         </div>
                         <?php
                         }
                         ?>
                     </div>
                     <div class="order__footer text-right">
-                        <span class="h5">Thành tiền: <?php echo number_format($order['total_amount']) ?>₫</span>
+                        <span class="h5">Thành tiền: <?php echo number_format($order['total_amount']) ?>$</span>
                     </div>
                 </div>
             </a>

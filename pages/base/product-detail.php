@@ -102,12 +102,12 @@ while ($row_product_detail = mysqli_fetch_array($query_product_detail)) {
                                     <?php
                                     if ($row_product_detail['product_sale'] > 0) {
                                     ?>
-                                        <del class="product__price--old h5"><?php echo number_format($row_product_detail['product_price']) . ' ₫' ?></del>
+                                        <del class="product__price--old h5"><?php echo number_format($row_product_detail['product_price']) . ' $' ?></del>
                                     <?php
                                     }
                                     ?>
 
-                                    <span class="product__price--new h4"><?php echo (number_format($row_product_detail['product_price'] - ($row_product_detail['product_price'] / 100 * $row_product_detail['product_sale']))) . ' ₫' ?></span>
+                                    <span class="product__price--new h4"><?php echo (number_format($row_product_detail['product_price'] - ($row_product_detail['product_price'] / 100 * $row_product_detail['product_sale']))) . ' $' ?></span>
                                     <?php
                                     if ($row_product_detail['product_sale'] > 0) {
                                     ?>

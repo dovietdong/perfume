@@ -61,7 +61,7 @@ $query_inventory_list = mysqli_query($mysqli, $sql_inventory_list);
                                     <td><?php echo $row['inventory_code'] ?></td>
                                     <td><?php echo $row['inventory_date'] ?></td>
                                     <td><?php echo $row['staf_name'] ?></td>
-                                    <td><?php echo number_format($row['total_amount']) . ' ₫' ?></td>
+                                    <td><?php echo number_format($row['total_amount']) . ' $' ?></td>
                                 </tr>
                             <?php
                             }
