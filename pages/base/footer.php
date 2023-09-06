@@ -20,28 +20,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col" style="--w-md: 4">
-                    <div class="footer__block pd-top">
-                        <div class="block__heading">
-                            Thương hiệu
-                        </div>
-                        <ul class="block__list">
-                            <?php
-                            $sql_brand_list = "SELECT * FROM brand ORDER BY brand_id DESC";
-                            $query_brand_list = mysqli_query($mysqli, $sql_brand_list);
-                            while ($row_brand = mysqli_fetch_array($query_brand_list)) {
-                            ?>
-                                <li class="block__item"><a class="footer__anchor" href="index.php?page=product_brand&brand_id=<?php echo $row_brand['brand_id'] ?>"><?php echo $row_brand['brand_name'] ?></a></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="col" style="--w-md: 4">
                     <div class="footer__block pd-top">
                         <div class="footer__logo">
-                            <img src="./assets/images/logo/logo_guha.png" alt="logo">
+                            <img src="./assets/images/logo/logo-short.png" alt="logo">
                         </div>
                     </div>
                 </div>

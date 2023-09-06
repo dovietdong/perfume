@@ -16,7 +16,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 <header class="header">
     <div class="header__topbar">
         <div class="container p-relative d-flex space-between align-center">
-            <p class="h5">Miễn phí ship toàn quốc</p>
+            <p class="h5">SellingSavvyllc</p>
             <?php if (isset($_SESSION['account_email'])) {
             ?>
                 <a class="h5 login-btn p-absolute" href="index.php?logout=1">ĐĂNG XUẤT</a>
@@ -40,7 +40,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                 </div>
                 <div class="header__logo d-flex justify-center align-center">
                     <a href="index.php" class="d-inline-block">
-                        <img class="d-block w-100 svg__icon" src="./assets/images/logo/logo_guha.png" alt="Logo" />
+                        <img class="d-block w-100 svg__icon" src="./assets/images/logo/logo-full.png" alt="Logo" />
                     </a>
                 </div>
                 <nav class="header__nav space-between d-flex">
@@ -55,12 +55,6 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                 <img class="d-none md-block svg__icon" src="./assets/images/icon/icon-chevron-down.svg" alt="back" style="margin-left: 8px" />
                             </span>
                             <ul class="header__subnav p-absolute">
-                                <li class="nav__item md-none h5">
-                                    <span class="nav__anchor cursor-pointer d-flex align-center" style="content: ''">
-                                        <img class="md-none svg__icon" src="./assets/images/icon/arrow-left.svg" alt="" style="margin-right: 8px" />
-                                        Cửa hàng 123
-                                    </span>
-                                </li>
                                 <li class="nav__item">
                                     <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=products">
                                         Tất cả sản phẩm
@@ -82,45 +76,13 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 
                             </ul>
                         </li>
-                        <li class="nav__item nav__items h7">
-                            <span class="nav__anchor p-relative h7 d-flex align-center space-between w-100 cursor-pointer" href="#">
-                                Thương hiệu
-                                <img class="md-none svg__icon" src="./assets/images/icon/icon-nextlink.svg" alt="next" />
-                                <img class="d-none md-block svg__icon" src="./assets/images/icon/icon-chevron-down.svg" alt="back" style="margin-left: 8px" />
-                            </span>
-                            <ul class="header__subnav p-absolute">
-                                <li class="nav__item md-none h5">
-                                    <span class="nav__anchor cursor-pointer d-flex align-center" style="content: ''">
-                                        <img class="md-none svg__icon" src="./assets/images/icon/arrow-left.svg" alt="" style="margin-right: 8px" />
-                                        Thương hiệu
-                                    </span>
-                                </li>
-                                <?php
-                                $sql_brand_list = "SELECT * FROM brand ORDER BY brand_id DESC";
-                                $query_brand_list = mysqli_query($mysqli, $sql_brand_list);
-                                while ($row_brand = mysqli_fetch_array($query_brand_list)) {
-                                ?>
-                                    <li class="nav__item">
-                                        <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=products&brand_id=<?php echo $row_brand['brand_id'] ?>">
-                                            <?php echo $row_brand['brand_name'] ?>
-                                        </a>
-                                    </li>
-                                <?php
-                                }
-                                ?>
-
-                            </ul>
-                        </li>
+                       
                         <li class="nav__item">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=about">
                                 Giới thiệu
                             </a>
                         </li>
-                        <li class="nav__item">
-                            <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=blog">
-                                Blog
-                            </a>
-                        </li>
+
                         <li class="nav__item">
                             <a class="nav__anchor h7 d-flex align-center space-between" href="index.php?page=contact">
                                 Liên hệ
