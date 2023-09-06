@@ -58,7 +58,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                 <li class="nav__item md-none h5">
                                     <span class="nav__anchor cursor-pointer d-flex align-center" style="content: ''">
                                         <img class="md-none svg__icon" src="./assets/images/icon/arrow-left.svg" alt="" style="margin-right: 8px" />
-                                        Cửa hàng
+                                        Cửa hàng 123
                                     </span>
                                 </li>
                                 <li class="nav__item">
