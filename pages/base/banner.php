@@ -1,6 +1,6 @@
 <div class="banner">
     <div class="banner__box d-flex p-relative banner__medium w-100">
-        <div class="image__banner image__item p-absolute" style="--w: 6">
+        <div class="image__banner image__item p-absolute" style="--w: 12">
             <img class="w-100 h-100 d-block object-fit-cover" src="./assets/images/banner/banner-big.jpg" alt="banner1" />
         </div>
         <!-- <div class="image__banner image__item p-absolute" style="--w: 6">
