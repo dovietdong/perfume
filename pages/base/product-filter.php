@@ -275,7 +275,7 @@ if (isset($_GET['pricefrom']) && isset($_GET['priceto'])) {
                                             <?php
                                             }
                                             ?>
-                                            <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' vnđ' ?></span>
+                                            <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale']))) . ' $' ?></span>
                                         </div>
                                     </a>
                                 </div>
