@@ -16,7 +16,7 @@
         </div>
         <div>
             <a class="navbar-brand brand-logo" href="index.php?action=home&query">
-                <img src="images/logoadmin.png" alt="logo" />
+                <img src="images/logo-full.png" alt="logo" />
             </a>
         </div>
     </div>
