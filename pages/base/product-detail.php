@@ -119,12 +119,18 @@ while ($row_product_detail = mysqli_fetch_array($query_product_detail)) {
                                 <div class="product-detail__variants">
                                     <div class="product-detail__variant">
                                         <h3 class="product-detail__variant--title h6">
-                                            Dung tích
+                                            Cân nặng
                                         </h3>
                                         <div class="product-detail__variant--items d-flex">
                                             <input class="custom-radio" type="radio" name="size" id="1" checked="checked" />
                                             <label class="custom-label product-detail__variant--item" for="1">
-                                                <?php echo $row_product_detail['capacity_name'] ?>
+                                                <?php if(isset($row_product_detail['capacity_name'])) {
+                                                            echo $row_product_detail['capacity_name'] ;
+                                                        } else{
+                                                            echo "";
+                                                        }
+                                                    
+                                                ?>
                                             </label>
                                         </div>
                                     </div>
@@ -495,9 +501,14 @@ if (isset($_GET['message']) && $_GET['message'] == 'success') {
             zoomWindow.style.top = (y - zoomWindow.offsetHeight / 2) + "px";
 
             // Hiển thị phần phóng to của ảnh
-            zoomWindow.style.backgroundImage = `url('${image.src}')`;
-            zoomWindow.style.backgroundSize = `${image.width * 2}px ${image.height * 2}px`;
-            zoomWindow.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+            if (img !== null) {
+                zoomWindow.style.backgroundImage = `url('${image.src}')`;
+                zoomWindow.style.backgroundSize = `${image.width * 2}px ${image.height * 2}px`;
+                zoomWindow.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+            } else {
+                console.log('co loi xay ra');
+            }
+
         });
     });
 </script>
