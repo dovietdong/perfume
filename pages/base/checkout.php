@@ -206,10 +206,10 @@ if (isset($_SESSION['account_id'])) {
                                 //$itemPrice = $total 
                             ?>
                             <div class="panel-heading">
-                                <h3 class="panel-title">Charge <?php echo '$'.$itemPrice; ?> with PayPal</h3>
+                                <!-- <h3 class="panel-title">Charge <?php // echo '$'.$itemPrice; ?> with PayPal</h3> -->
                                 <!-- Product Info -->
-                                <p><b>Item Name:</b> <?php echo $itemName; ?></p>
-                                <p><b>Price:</b> <?php echo '$'.$itemPrice.' '.$currency; ?></p>
+                                <!-- <p><b>Item Name:</b> <?php // echo $itemName; ?></p> -->
+                                <!-- <p><b>Price:</b> <?php // echo '$'.$itemPrice.' '.$currency; ?></p> -->
                             </div>
 
                             <div class="panel-body">
