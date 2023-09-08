@@ -203,7 +203,7 @@ if (isset($_SESSION['account_id'])) {
                             </div>
 
                             <?php  
-                                //$itemPrice = $total 
+                                 $itemPrice = $total 
                             ?>
                             <div class="panel-heading">
                                 <!-- <h3 class="panel-title">Charge <?php // echo '$'.$itemPrice; ?> with PayPal</h3> -->
