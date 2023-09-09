@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((response) => response.json())
             .then((result) => {
                 if(result.status == 1){
-                    window.location.href = "payment-status.php?checkout_ref_id="+result.ref_id;
-                    //window.location.href = "index.php?page=thankiu&order_type=1";
+                    //window.location.href = "payment-status.php?checkout_ref_id="+result.ref_id;
+                    window.location.href = "index.php?page=thankiu&order_type=1";
                 }else{
                     const messageContainer = document.querySelector("#paymentResponse");
                     messageContainer.classList.remove("hidden");
