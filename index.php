@@ -1,5 +1,4 @@
 <?php 
-session_start();
 // Include the configuration file  
 require_once './config-paypal.php'; 
 ?>
@@ -104,7 +103,7 @@ paypal.Buttons({
         return actions.order.create({
             "purchase_units": [{
                 "custom_id": "<?php echo $itemNumber; ?>",
-                "description": "thanh toan paypal",
+                "description": "<?php echo $itemName; ?>",
                 "amount": {
                     "currency_code": "<?php echo $currency; ?>",
                     "value": <?php echo $itemPrice; ?>,

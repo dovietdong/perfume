@@ -130,25 +130,25 @@ if(!empty($_POST['paypal_order_check']) && !empty($_POST['order_id'])){
                 }
 
                 // them dia chi giao hang
-                // $delivery_id = $_SESSION['delivery_id'] ;
-                // $delivery_name = $_SESSION['delivery_name'];
-                // $delivery_address = $_SESSION['delivery_address'];
-                // $delivery_phone = $_SESSION['delivery_phone'] ;
-                // $delivery_note = $_SESSION['delivery_note'];
+                $delivery_id = $_SESSION['delivery_id'] ;
+                $delivery_name = $_SESSION['delivery_name'];
+                $delivery_address = $_SESSION['delivery_address'];
+                $delivery_phone = $_SESSION['delivery_phone'] ;
+                $delivery_note = $_SESSION['delivery_note'];
 
                 // Lay thong tin thong qua phuong thuc POST
-                $delivery_name = $_POST['delivery_name'];
-                $delivery_address = $_POST['delivery_address'];
-                $delivery_phone = $_POST['delivery_phone'];
-                $delivery_note = $_POST['delivery_note'];
-                $order_type = $_POST['order_type'];
+                // $delivery_name = $_POST['delivery_name'];
+                // $delivery_address = $_POST['delivery_address'];
+                // $delivery_phone = $_POST['delivery_phone'];
+                // $delivery_note = $_POST['delivery_note'];
+                // $order_type = $_POST['order_type'];
 
                 // Gan gia thong tin giao hang vao session delivery
-                $_SESSION['delivery_id'] = $delivery_id;
-                $_SESSION['delivery_name'] = $delivery_name;
-                $_SESSION['delivery_address'] = $delivery_address;
-                $_SESSION['delivery_phone'] = $delivery_phone;
-                $_SESSION['delivery_note'] = $delivery_note;
+                // $_SESSION['delivery_id'] = $delivery_id;
+                // $_SESSION['delivery_name'] = $delivery_name;
+                // $_SESSION['delivery_address'] = $delivery_address;
+                // $_SESSION['delivery_phone'] = $delivery_phone;
+                // $_SESSION['delivery_note'] = $delivery_note;
 
                 $insert_delivery = "INSERT INTO delivery(delivery_id, account_id, delivery_name, delivery_phone, delivery_address, delivery_note) VALUE ($delivery_id, $account_id, '$delivery_name', '$delivery_phone', '$delivery_address', '$delivery_note')";
                 mysqli_query($mysqli, $insert_delivery);
