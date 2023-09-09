@@ -97,7 +97,10 @@ require_once './config-paypal.php';
 
 <!-- thanh toan paypal -->
 <script>
-paypal.Buttons({
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Gọi mã JavaScript của PayPal ở đây
+    paypal.Buttons({
     // Sets up the transaction when a payment button is clicked
     createOrder: (data, actions) => {
         return actions.order.create({
@@ -181,6 +184,7 @@ const setProcessing = (isProcessing) => {
         document.querySelector(".overlay").classList.add("hidden");
     }
 };    
+  });
 </script>
 </body>
 </html>
