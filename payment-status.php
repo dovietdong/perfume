@@ -1,9 +1,9 @@
 <?php 
 // Include the configuration file  
-require_once 'config.php'; 
+require_once './admin/config/config.php'; 
  
 // Include the database connection file  
-require_once 'config-paypal.php'; 
+require_once './config-paypal.php'; 
  
 $payment_ref_id = $statusMsg = ''; 
 $status = 'error'; 
@@ -14,7 +14,7 @@ if(!empty($_GET['checkout_ref_id'])){
      
     // Fetch transaction data from the database 
     $sqlQ = "SELECT id,payer_id,payer_name,payer_email,payer_country,order_id,transaction_id,paid_amount,paid_amount_currency,payment_source,payment_status,created FROM transactions WHERE transaction_id = ?"; 
-    $stmt = $db->prepare($sqlQ);  
+    $stmt = $mysqli->prepare($sqlQ);  
     $stmt->bind_param("s", $payment_txn_id); 
     $stmt->execute(); 
     $stmt->store_result(); 

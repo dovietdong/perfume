@@ -212,11 +212,12 @@ if (isset($_SESSION['account_id'])) {
                                 <!-- <p><b>Price:</b> <?php // echo '$'.$itemPrice.' '.$currency; ?></p> -->
                             </div>
 
+
                             <div class="panel-body">
                                 <!-- Display status message -->
                                 <div id="paymentResponse" class="hidden"></div>
                                 <!-- Set up a container element for the button -->
-                                <div id="paypal-button-container"></div>
+                                <div type="submit" name="redirect" id="paypal-button-container"></div>
                             </div>
                         </div>
 
@@ -231,3 +232,4 @@ if (isset($_SESSION['account_id'])) {
         </form>
     </div>
 </section>
+

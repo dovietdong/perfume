@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../../admin/config/config.php');
+include('./../../config-paypal.php');
 require '../../carbon/autoload.php';
 require_once('config_vnpay.php');
 

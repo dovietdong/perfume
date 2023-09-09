@@ -59,6 +59,9 @@ include("./pages/base/header.php");
     elseif ($action == '404'){
         include("./pages/main/404.php");
     }
+    elseif ($action == 'payment-status') {
+        include("./../payment-status.php");
+    }
     else {
         include("./pages/main/home.php");
     }

@@ -12,6 +12,8 @@ function format_order_type($value)
     echo "Thanh toán chuyển khoản VNPAY";
   } elseif ($value == 5) {
     echo "Mua hàng trực tiếp";
+  }elseif ($value == 6) {
+    echo "Thanh toán chuyển khoản paypal";
   }
   echo $text;
 }
