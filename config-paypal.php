@@ -10,7 +10,7 @@ $currency = "USD";
  * You can generate API credentials from the PayPal developer panel. 
  * See your keys here: https://developer.paypal.com/dashboard/ 
  */ 
-define('PAYPAL_SANDBOX', true); //TRUE=Sandbox | FALSE=Production 
+define('PAYPAL_SANDBOX', false); //TRUE=Sandbox | FALSE=Production 
 define('PAYPAL_SANDBOX_CLIENT_ID', 'Ab1fEMmiyQo9T6u0rWEkLJyLBkPHzzT5jSRAnwfez4TvCRjjmQo8PeADViZbPLGw_VFXYk89fifxD1qZ'); 
 define('PAYPAL_SANDBOX_CLIENT_SECRET', 'EJp1WmB3XcR-vRSLHVotdwJ_MZTGKxO7vMeG-KcdrmPlMfr25r-WhJ2JakJ8VMWZ1WEHz93vgqx9_Ixp'); 
 define('PAYPAL_PROD_CLIENT_ID', 'AT0f05LN5fpPpztgmcdkeqU3lx5Gw5W3Ogag5vi_ev9-R7WayqNEY817vLik_yLr2D00y58sMYXw1WT3'); 
