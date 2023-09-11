@@ -5,6 +5,7 @@ if (isset($_SESSION['account_id'])) {
     $query_account = mysqli_query($mysqli, $sql_customer);
     $number_customer = mysqli_num_rows($query_account);
 }
+
 ?>
 <!-- start checkout -->
 <section class="checkout pd-section">
@@ -17,71 +18,62 @@ if (isset($_SESSION['account_id'])) {
                         <?php
                         if ($number_customer > 0) {
                         ?>
-                        <?php
+                            <?php
                             if (isset($query_account)) {
                                 while ($account = mysqli_fetch_array($query_account)) {
                             ?>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Tên khách hàng:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_name"
-                                value="<?php echo $account['customer_name'] ?>" required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Địa chỉ:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_address"
-                                value="<?php echo $account['customer_address'] ?>"
-                                placeholder="Nhập vào địa chỉ nhận hàng" required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Số điện thoại:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_phone"
-                                value="<?php echo $account['customer_phone'] ?>" required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="delivery_note">Ghi chú:</label>
-                            <input id="delivery_note" type="text" class="info__input flex-1"
-                                placeholder="Nhập vào ghi chú với người bán ..." name="delivery_note" value=""></input>
-                        </div>
-                        <?php
+                                    <div class="info__item d-flex">
+                                        <label class="info__title" for="">Tên khách hàng:</label>
+                                        <input id="delivery_name" type="text" class="info__input flex-1" name="delivery_name" value="<?php echo $account['customer_name'] ?>" required></input>
+                                    </div>
+                                    <div class="info__item d-flex">
+                                        <label class="info__title" for="">Địa chỉ:</label>
+                                        <input type="text" class="info__input flex-1" name="delivery_address" value="<?php echo $account['customer_address'] ?>" placeholder="Nhập vào địa chỉ nhận hàng" required></input>
+                                    </div>
+                                    <div class="info__item d-flex">
+                                        <label class="info__title" for="">Số điện thoại:</label>
+                                        <input type="text" class="info__input flex-1" name="delivery_phone" value="<?php echo $account['customer_phone'] ?>" required></input>
+                                    </div>
+                                    <div class="info__item d-flex">
+                                        <label class="info__title" for="delivery_note">Ghi chú:</label>
+                                        <input id="delivery_note" type="text" class="info__input flex-1" placeholder="Nhập vào ghi chú với người bán ..." name="delivery_note" value=""></input>
+                                    </div>
+                                <?php
                                 }
                             } else {
                                 ?>
-                        <a href="index.php?page=login">Vui lòng đăng nhập tài khoản</a>
-                        <?php
+                                <a href="index.php?page=login">Vui lòng đăng nhập tài khoản</a>
+                            <?php
                             }
                             ?>
                         <?php
                         } else {
                         ?>
-                        <?php
+                            <?php
                             if (isset($query_account)) {
                             ?>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Tên khách hàng:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_name" value=""
-                                placeholder="Nhập vào tên người nhận hàng ..." required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Địa chỉ:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_address" value=""
-                                placeholder="Nhập vào địa chỉ nhận hàng ..." required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="">Số điện thoại:</label>
-                            <input type="text" class="info__input flex-1" name="delivery_phone" value=""
-                                placeholder="Nhập vào số điện thoại nhận hàng ..." required></input>
-                        </div>
-                        <div class="info__item d-flex">
-                            <label class="info__title" for="delivery_note">Ghi chú:</label>
-                            <input id="delivery_note" type="text" class="info__input flex-1"
-                                placeholder="Nhập vào ghi chú với người bán ..." name="delivery_note" value=""></input>
-                        </div>
-                        <?php
+                                <div class="info__item d-flex">
+                                    <label class="info__title" for="">Tên khách hàng:</label>
+                                    <input type="text" class="info__input flex-1" name="delivery_name" value="" placeholder="Nhập vào tên người nhận hàng ..." required></input>
+                                </div>
+                                <div class="info__item d-flex">
+                                    <label class="info__title" for="">Địa chỉ:</label>
+                                    <input type="text" class="info__input flex-1" name="delivery_address" value="" placeholder="Nhập vào địa chỉ nhận hàng ..." required></input>
+                                </div>
+                                <div class="info__item d-flex">
+                                    <label class="info__title" for="">Số điện thoại:</label>
+                                    <input type="text" class="info__input flex-1" name="delivery_phone" value="" placeholder="Nhập vào số điện thoại nhận hàng ..." required></input>
+                                </div>
+                                <div class="info__item d-flex">
+                                    <label class="info__title" for="delivery_note">Ghi chú:</label>
+                                    <input id="delivery_note" type="text" class="info__input flex-1" placeholder="Nhập vào ghi chú với người bán ..." name="delivery_note" value=""></input>
+                                </div>
+                            <?php
 
                             } else {
                             ?>
-                        <a href="index.php?page=login">Vui lòng đăng nhập tài khoản</a>
-                        <?php
+                                <a href="index.php?page=login">Vui lòng đăng nhập tài khoản</a>
+                            <?php
                             }
                             ?>
                         <?php
@@ -101,28 +93,23 @@ if (isset($_SESSION['account_id'])) {
                                 foreach ($_SESSION['cart'] as $cart_item) {
                                     $total += ($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale'])) * $cart_item['product_quantity'];
                             ?>
-                            <div class="checkout__item d-flex align-center">
-                                <div class="checkout__image p-relative">
-                                    <div class="product-quantity align-center d-flex justify-center p-absolute"><span
-                                            class="h6"><?php echo $cart_item['product_quantity'] ?></span></div>
-                                    <a
-                                        href="index.php?page=product_detail&product_id=<?php echo $cart_item['product_id'] ?>"><img
-                                            class="w-100 d-block object-fit-cover ratio-1"
-                                            src="admin/modules/product/uploads/<?php echo $cart_item['product_image'] ?>"
-                                            alt=""></a>
-                                </div>
-                                <div class="checkout__name flex-1">
-                                    <h3 class="h6"><?php echo $cart_item['product_name'] ?></h3>
-                                </div>
-                                <div class="h6 checkout__price">
-                                    <?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?>
-                                </div>
-                            </div>
-                            <?php
+                                    <div class="checkout__item d-flex align-center">
+                                        <div class="checkout__image p-relative">
+                                            <div class="product-quantity align-center d-flex justify-center p-absolute"><span class="h6"><?php echo $cart_item['product_quantity'] ?></span></div>
+                                            <a href="index.php?page=product_detail&product_id=<?php echo $cart_item['product_id'] ?>"><img class="w-100 d-block object-fit-cover ratio-1" src="admin/modules/product/uploads/<?php echo $cart_item['product_image'] ?>" alt=""></a>
+                                        </div>
+                                        <div class="checkout__name flex-1">
+                                            <h3 class="h6"><?php echo $cart_item['product_name'] ?></h3>
+                                        </div>
+                                        <div class="h6 checkout__price">
+                                            <?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?>
+                                        </div>
+                                    </div>
+                                <?php
                                 }
                             } else {
                                 ?>
-                            <span>Không tồn tại giỏ hàng</span>
+                                <span>Không tồn tại giỏ hàng</span>
                             <?php
                             }
                             ?>
@@ -146,8 +133,7 @@ if (isset($_SESSION['account_id'])) {
                         <div class="checkout__bottom text-right">
                             <div class="checkout__total--amount d-flex align-center space-between">
                                 <h4 class="h4">Tổng tiền phải thanh toán:</h4>
-                                <span
-                                    class="h4 checkout__total"><?php echo number_format((float) $total) . '$' ?></span>
+                                <span class="h4 checkout__total"><?php echo number_format((float) $total) . '$' ?></span>
                             </div>
                         </div>
                     </div>
@@ -197,19 +183,22 @@ if (isset($_SESSION['account_id'])) {
                         </div> -->
 
                         <div class="panel">
-                            
+
                             <div class="overlay hidden">
-                                <div class="overlay-content"><!-- anh loading --></div> 
+                                <div class="overlay-content"><!-- anh loading --></div>
                             </div>
 
-                            <?php  
-                                 $itemPrice = $total 
+                            <?php
+                            $itemPrice = $total
                             ?>
                             <div class="panel-heading">
-                                <!-- <h3 class="panel-title">Charge <?php // echo '$'.$itemPrice; ?> with PayPal</h3> -->
+                                <!-- <h3 class="panel-title">Charge <?php // echo '$'.$itemPrice; 
+                                                                    ?> with PayPal</h3> -->
                                 <!-- Product Info -->
-                                <!-- <p><b>Item Name:</b> <?php // echo $itemName; ?></p> -->
-                                <!-- <p><b>Price:</b> <?php // echo '$'.$itemPrice.' '.$currency; ?></p> -->
+                                <!-- <p><b>Item Name:</b> <?php // echo $itemName; 
+                                                            ?></p> -->
+                                <!-- <p><b>Price:</b> <?php // echo '$'.$itemPrice.' '.$currency; 
+                                                        ?></p> -->
                             </div>
 
 
@@ -233,3 +222,110 @@ if (isset($_SESSION['account_id'])) {
     </div>
 </section>
 
+<!-- thanh toan paypal -->
+<script>
+    var delivery_name = "";
+    document.addEventListener("DOMContentLoaded", function() {
+        // Gọi mã JavaScript của PayPal ở đây
+        paypal.Buttons({
+            onClick() {
+                delivery_name = document.getElementById("delivery_name").value
+                console.log('thanhtoan', delivery_name);
+            },
+            // Sets up the transaction when a payment button is clicked
+            createOrder: (data, actions) => {
+                return actions.order.create({
+                    "purchase_units": [{
+                        "custom_id": "<?php echo $itemNumber; ?>",
+                        "description": "<?php echo $itemName; ?>",
+                        "amount": {
+                            "currency_code": "<?php echo $currency; ?>",
+                            "value": <?php echo $itemPrice; ?>,
+                            "breakdown": {
+                                "item_total": {
+                                    "currency_code": "<?php echo $currency; ?>",
+                                    "value": <?php echo $itemPrice; ?>
+                                }
+                            }
+                        },
+                        "items": [{
+                            "name": "<?php echo $itemName; ?>",
+                            "description": "<?php echo $itemName; ?>",
+                            "unit_amount": {
+                                "currency_code": "<?php echo $currency; ?>",
+                                "value": <?php echo $itemPrice; ?>
+                            },
+                            "quantity": "1",
+                            "category": "DIGITAL_GOODS"
+                        }]
+                    }]
+                });
+            },
+            // Finalize the transaction after payer approval
+            onApprove: (data, actions) => {
+                return actions.order.capture().then(function(orderData) {
+                    setProcessing(true);
+
+                    var postData = {
+                        paypal_order_check: 1,
+                        order_id: orderData.id,
+                        delivery_name_key: delivery_name
+                    };
+                    console.log('approve', delivery_name);
+                    fetch('paypal_checkout_validate.php', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json'
+                            },
+                            body: encodeFormData(postData)
+                        })
+                        .then((response) => response.json())
+                        .then((result) => {
+                            if (result.status == 1) {
+                                // console.log('result', result);
+                                // console.log('respose', response.json());
+                                //window.location.href = "payment-status.php?checkout_ref_id="+result.ref_id;
+                                window.location.href = "index.php?page=thankiu&order_type=1";
+                            } else {
+                                const messageContainer = document.querySelector("#paymentResponse");
+                                messageContainer.classList.remove("hidden");
+                                messageContainer.textContent = result.msg;
+
+                                setTimeout(function() {
+                                    messageContainer.classList.add("hidden");
+                                    messageText.textContent = "";
+                                }, 5000);
+                            }
+                            setProcessing(false);
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            console.log(error.code);
+                        });
+                });
+            },
+            onError: function(error) {
+                // Xử lý và hiển thị lỗi cho người dùng
+                alert("Đã xảy ra lỗi: " + error.message);
+            },
+        }).render('#paypal-button-container');
+
+        const encodeFormData = (data) => {
+            var form_data = new FormData();
+
+            for (var key in data) {
+                form_data.append(key, data[key]);
+            }
+            return form_data;
+        };
+
+        // Show a loader on payment form processing
+        const setProcessing = (isProcessing) => {
+            if (isProcessing) {
+                document.querySelector(".overlay").classList.remove("hidden");
+            } else {
+                document.querySelector(".overlay").classList.add("hidden");
+            }
+        };
+    });
+</script>

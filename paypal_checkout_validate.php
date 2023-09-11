@@ -105,6 +105,38 @@ if(!empty($_POST['paypal_order_check']) && !empty($_POST['order_id'])){
                 VALUE ($order_code, $order_date, $account_id, $delivery_id, $total_amount, $order_type, $order_status_orders)";
                 $query_insert_order = mysqli_query($mysqli, $insert_order1);
 
+                $delivery_name = "";
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delivery_name_key"])) {
+                    // Lấy và bảo vệ giá trị từ trường nhập liệu
+                    $delivery_name = mysqli_real_escape_string($mysqli, $_POST["delivery_name_key"]);
+                    $delivery_id = rand(0, 9999);
+                    $delivery_address = "0";
+                    $delivery_phone = "0123"; // Đặt trong dấu nháy đơn
+                    $delivery_note = "note exem";
+                
+                    // Kiểm tra kết nối cơ sở dữ liệu (thay $host, $username, $password và $database bằng giá trị thực)
+                    // $mysqli = new mysqli($host, $username, $password, $database);
+                
+                    if ($mysqli->connect_error) {
+                        die("Kết nối cơ sở dữ liệu thất bại: " . $mysqli->connect_error);
+                    }
+                
+                    // Truy vấn SQL với Prepared Statement để bảo vệ an toàn
+                    $insert_delivery = "INSERT INTO delivery(delivery_id, account_id, delivery_name, delivery_phone, delivery_address, delivery_note) VALUES (?, ?, ?, ?, ?, ?)";
+                
+                    $stmt = $mysqli->prepare($insert_delivery);
+                    $stmt->bind_param("iissss", $delivery_id, $account_id, $delivery_name, $delivery_phone, $delivery_address, $delivery_note);
+                
+                    if ($stmt->execute()) {
+                        //echo "Thêm giao hàng thành công!";
+                    } else {
+                        die("Thêm giao hàng thất bại: " . $mysqli->error);
+                    }
+                
+                    // $stmt->close();
+                    // $mysqli->close();
+                }
+
                 //them orders_detail
                 if ($query_insert_order) {
                     foreach ($_SESSION['cart'] as $cart_item) {
@@ -129,32 +161,11 @@ if(!empty($_POST['paypal_order_check']) && !empty($_POST['order_id'])){
                     //header('Location:../../index.php?page=thankiu&order_type=1');
                 }
 
-                // them dia chi giao hang
-                $delivery_id = $_SESSION['delivery_id'] ;
-                $delivery_name = $_SESSION['delivery_name'];
-                $delivery_address = $_SESSION['delivery_address'];
-                $delivery_phone = $_SESSION['delivery_phone'] ;
-                $delivery_note = $_SESSION['delivery_note'];
 
-                // Lay thong tin thong qua phuong thuc POST
-                // $delivery_name = $_POST['delivery_name'];
-                // $delivery_address = $_POST['delivery_address'];
-                // $delivery_phone = $_POST['delivery_phone'];
-                // $delivery_note = $_POST['delivery_note'];
-                // $order_type = $_POST['order_type'];
-
-                // Gan gia thong tin giao hang vao session delivery
-                // $_SESSION['delivery_id'] = $delivery_id;
-                // $_SESSION['delivery_name'] = $delivery_name;
-                // $_SESSION['delivery_address'] = $delivery_address;
-                // $_SESSION['delivery_phone'] = $delivery_phone;
-                // $_SESSION['delivery_note'] = $delivery_note;
-
-                $insert_delivery = "INSERT INTO delivery(delivery_id, account_id, delivery_name, delivery_phone, delivery_address, delivery_note) VALUE ($delivery_id, $account_id, '$delivery_name', '$delivery_phone', '$delivery_address', '$delivery_note')";
-                mysqli_query($mysqli, $insert_delivery);
 
                 if($insert){ 
                     $payment_id = $stmt->insert_id; 
+                    // echo "<script>showErrorToast();</script>";
                 } 
 
                 // $insert_order1 = "INSERT INTO orders(order_code, order_date, account_id, delivery_id, total_amount, order_type, order_status) 
@@ -171,5 +182,4 @@ if(!empty($_POST['paypal_order_check']) && !empty($_POST['order_id'])){
         $response['msg'] = $api_error; 
     } 
 } 
-echo json_encode($response); 
-?>
+echo json_encode($response);
