@@ -17,7 +17,7 @@ if (isset($_POST['paypal_order_check']) && isset($_POST['order_id'])) {
             $delivery_id = $_POST["delivery_id"];
             $total_amount = $_SESSION["total_item"];
             $order_type = 6; // 6 - paypal
-            $order_status_orders = 1; // ?
+            $order_status_orders = 0; // ? 0 - đang chuẩn bị hàng
             $insert_order1 = "INSERT INTO orders (order_code, order_date, account_id, delivery_id, total_amount, order_type, order_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             $stmt_order = $mysqli->prepare($insert_order1);
