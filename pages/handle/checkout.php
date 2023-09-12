@@ -8,9 +8,6 @@ require_once('config_vnpay.php');
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
-
-
-
 if (isset($_POST['redirect'])) {
     // Sinh ma don hang va ma giao hang
     $order_code = rand(0, 9999);

@@ -28,11 +28,11 @@ if (isset($_SESSION['account_id'])) {
                                     </div>
                                     <div class="info__item d-flex">
                                         <label class="info__title" for="">Địa chỉ:</label>
-                                        <input type="text" class="info__input flex-1" name="delivery_address" value="<?php echo $account['customer_address'] ?>" placeholder="Nhập vào địa chỉ nhận hàng" required></input>
+                                        <input id="delivery_address" type="text" class="info__input flex-1" name="delivery_address" value="<?php echo $account['customer_address'] ?>" placeholder="Nhập vào địa chỉ nhận hàng" required></input>
                                     </div>
                                     <div class="info__item d-flex">
                                         <label class="info__title" for="">Số điện thoại:</label>
-                                        <input type="text" class="info__input flex-1" name="delivery_phone" value="<?php echo $account['customer_phone'] ?>" required></input>
+                                        <input id="delivery_phone" type="text" class="info__input flex-1" name="delivery_phone" value="<?php echo $account['customer_phone'] ?>" required></input>
                                     </div>
                                     <div class="info__item d-flex">
                                         <label class="info__title" for="delivery_note">Ghi chú:</label>
@@ -129,7 +129,6 @@ if (isset($_SESSION['account_id'])) {
                                 </tr>
                             </table>
                         </div>
-
                         <div class="checkout__bottom text-right">
                             <div class="checkout__total--amount d-flex align-center space-between">
                                 <h4 class="h4">Tổng tiền phải thanh toán:</h4>
@@ -189,7 +188,8 @@ if (isset($_SESSION['account_id'])) {
                             </div>
 
                             <?php
-                            $itemPrice = $total
+                            $itemPrice = $total;
+
                             ?>
                             <div class="panel-heading">
                                 <!-- <h3 class="panel-title">Charge <?php // echo '$'.$itemPrice; 
@@ -223,55 +223,49 @@ if (isset($_SESSION['account_id'])) {
 </section>
 
 <!-- thanh toan paypal -->
+<?php $_SESSION["total_item"] = $total; ?>
 <script>
-    var delivery_name = "";
     document.addEventListener("DOMContentLoaded", function() {
         // Gọi mã JavaScript của PayPal ở đây
+        var delivery_id = 0;
+        var delivery_name = "";
+        var delivery_address = "";
+        var delivery_phone = "";
+        var delivery_note = "";
         paypal.Buttons({
             onClick() {
-                delivery_name = document.getElementById("delivery_name").value
-                console.log('thanhtoan', delivery_name);
+                delivery_id = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+                delivery_name = document.getElementById("delivery_name").value;
+                delivery_address = document.getElementById("delivery_address").value;
+                delivery_phone = document.getElementById("delivery_phone").value;
+                delivery_note = document.getElementById("delivery_note").value;
+                console.log('clicked paypal button!', delivery_id);
             },
             // Sets up the transaction when a payment button is clicked
             createOrder: (data, actions) => {
                 return actions.order.create({
                     "purchase_units": [{
-                        "custom_id": "<?php echo $itemNumber; ?>",
-                        "description": "<?php echo $itemName; ?>",
+                        "custom_id": "<?php echo $_SESSION["account_id"] ?>",
+                        "description": "mô tả",
                         "amount": {
                             "currency_code": "<?php echo $currency; ?>",
-                            "value": <?php echo $itemPrice; ?>,
-                            "breakdown": {
-                                "item_total": {
-                                    "currency_code": "<?php echo $currency; ?>",
-                                    "value": <?php echo $itemPrice; ?>
-                                }
-                            }
-                        },
-                        "items": [{
-                            "name": "<?php echo $itemName; ?>",
-                            "description": "<?php echo $itemName; ?>",
-                            "unit_amount": {
-                                "currency_code": "<?php echo $currency; ?>",
-                                "value": <?php echo $itemPrice; ?>
-                            },
-                            "quantity": "1",
-                            "category": "DIGITAL_GOODS"
-                        }]
+                            "value": <?php echo $_SESSION["total_item"] ?>
+                        }
                     }]
                 });
             },
             // Finalize the transaction after payer approval
             onApprove: (data, actions) => {
                 return actions.order.capture().then(function(orderData) {
-                    setProcessing(true);
-
                     var postData = {
                         paypal_order_check: 1,
                         order_id: orderData.id,
-                        delivery_name_key: delivery_name
+                        delivery_id: delivery_id,
+                        delivery_name: delivery_name,
+                        delivery_address: delivery_address,
+                        delivery_phone: delivery_phone,
+                        delivery_note: delivery_note,
                     };
-                    console.log('approve', delivery_name);
                     fetch('paypal_checkout_validate.php', {
                             method: 'POST',
                             headers: {
@@ -279,28 +273,24 @@ if (isset($_SESSION['account_id'])) {
                             },
                             body: encodeFormData(postData)
                         })
-                        .then((response) => response.json())
-                        .then((result) => {
-                            if (result.status == 1) {
-                                // console.log('result', result);
-                                // console.log('respose', response.json());
-                                //window.location.href = "payment-status.php?checkout_ref_id="+result.ref_id;
+                        .then(response => response.json()) // Parse JSON ở đây
+                        .then(data => {
+                            console.log(data); // In dữ liệu ra console
+                            if (data.status === 1) {
+                                // Chuyển hướng đến trang cảm ơn nếu thanh toán thành công
                                 window.location.href = "index.php?page=thankiu&order_type=1";
                             } else {
-                                const messageContainer = document.querySelector("#paymentResponse");
-                                messageContainer.classList.remove("hidden");
-                                messageContainer.textContent = result.msg;
-
-                                setTimeout(function() {
-                                    messageContainer.classList.add("hidden");
-                                    messageText.textContent = "";
-                                }, 5000);
+                                // Xử lý lỗi nếu cần
+                                toastr.error(data.msg, {
+                                    timeOut: 2000
+                                });
                             }
-                            setProcessing(false);
                         })
                         .catch(error => {
+                            toastr.error('Có lỗi khi thanh toán paypal.', {
+                                timeOut: 2000
+                            });
                             console.log(error);
-                            console.log(error.code);
                         });
                 });
             },

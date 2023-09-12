@@ -1,15 +1,4 @@
 <?php  
-/**  
- *  
- * This PayPal Checkout API handler class is a custom PHP library to handle the PayPal API calls.  
- *  
- * @class   PaypalCheckout  
- * @author  CodexWorld  
- * @link    https://www.codexworld.com  
- * @version 1.0  
- */  
- 
-// Include the configuration file 
 include_once './config-paypal.php'; 
  
 class PaypalCheckout{  
