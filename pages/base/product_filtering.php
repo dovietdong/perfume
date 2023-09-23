@@ -88,11 +88,11 @@
                                         <?php
                                         if ($row_relatedProc['product_sale'] > 0) {
                                         ?>
-                                            <del class="product__price--old h5"><?php echo number_format($row_relatedProc['product_price']) . ' ₫' ?></del>
+                                            <del class="product__price--old h5"><?php echo number_format($row_relatedProc['product_price']) . ' $' ?></del>
                                         <?php
                                         }
                                         ?>
-                                        <span class="product__price--new h4"><?php echo (number_format($row_relatedProc['product_price'] - ($row_relatedProc['product_price'] / 100 * $row_relatedProc['product_sale'])) . ' ₫') ?></span>
+                                        <span class="product__price--new h4"><?php echo (number_format($row_relatedProc['product_price'] - ($row_relatedProc['product_price'] / 100 * $row_relatedProc['product_sale'])) . ' $') ?></span>
                                     </div>
                                 </a>
                             </div>

@@ -79,7 +79,7 @@ $query_inventory_detail = mysqli_query($mysqli, $sql_inventory_detail);
                                             </td>
                                             <td><?php echo $row['product_name'] ?></td>
                                             <td class="text-center"><?php echo $row['product_quantity'] ?></td>
-                                            <td class="text-right"><?php echo number_format($row['product_price_import']) . '₫' ?></td>
+                                            <td class="text-right"><?php echo number_format($row['product_price_import']) . '$' ?></td>
                                         </tr>
                                     <?php
                                     }
@@ -98,7 +98,7 @@ $query_inventory_detail = mysqli_query($mysqli, $sql_inventory_detail);
                             </table>
                         </div>
                         <div class="w-100 text-right">
-                            <p>Tổng tiền: <?php echo number_format((float) $total_amount) . '₫' ?></p>
+                            <p>Tổng tiền: <?php echo number_format((float) $total_amount) . '$' ?></p>
                         </div>
                     </div>
                 </div>

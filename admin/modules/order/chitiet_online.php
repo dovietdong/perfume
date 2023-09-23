@@ -83,7 +83,7 @@ $query_order = mysqli_query($mysqli, $sql_order);
                                                 <div class="checkout__name flex-1">
                                                     <h3 class="checkout__name"><?php echo $cart_item['product_name'] ?></h3>
                                                 </div>
-                                                <div class="checkout__price"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' ₫' ?></div>
+                                                <div class="checkout__price"><?php echo (number_format($cart_item['product_price'] - ($cart_item['product_price'] / 100 * $cart_item['product_sale']))) . ' $' ?></div>
                                             </div>
                                         <?php
                                         }
@@ -92,7 +92,7 @@ $query_order = mysqli_query($mysqli, $sql_order);
                                     <table class="w-100 mg-t-20">
                                         <tr class="table-row">
                                             <td class="h6 table-col">Giảm giá</td>
-                                            <td class="h6 table-col text-right"> 0₫</td>
+                                            <td class="h6 table-col text-right"> 0$</td>
                                         </tr>
                                         <tr class="table-row">
                                             <td class="h6 table-col">Phí vận chuyển</td>
@@ -101,7 +101,7 @@ $query_order = mysqli_query($mysqli, $sql_order);
                                     </table>
                                     <div class="checkout__bottom d-flex align-center space-between">
                                         <h4 class="checkout__total">Tổng tiền:</h4>
-                                        <span class="checkout__total"><?php echo number_format((float) $total) . '₫' ?></span>
+                                        <span class="checkout__total"><?php echo number_format((float) $total) . '$' ?></span>
                                     </div>
                                 </div>
                             </div>

@@ -16,7 +16,6 @@ if ($page == '' || $page == 1) {
 
 if (isset($_GET['order_status'])) {
     $order_status = $_GET['order_status'];
-    $url_status = '&order_status='.$order_status;
     $sql_order_list = "SELECT * FROM orders JOIN account ON orders.account_id = account.account_id WHERE orders.order_status = $order_status ORDER BY orders.order_id DESC LIMIT $begin,10";
     $query_order_list = mysqli_query($mysqli, $sql_order_list);
 } else {

@@ -1,14 +1,12 @@
 <?php
 session_start();
 include('../../admin/config/config.php');
+include('./../../config-paypal.php');
 require '../../carbon/autoload.php';
 require_once('config_vnpay.php');
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
-
-
-
 
 if (isset($_POST['redirect'])) {
     // Sinh ma don hang va ma giao hang

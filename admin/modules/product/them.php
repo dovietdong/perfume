@@ -20,23 +20,9 @@
                             <input type="text" id="product_name" name="product_name" class="d-block form-control" value="" placeholder="product name" required>
                             <span class="form-message"></span>
                         </div>
+
                         <div class="input-item form-group">
-                            <label for="product_brand" class="d-block">Thương hiệu sản phẩm</label>
-                            <select name="product_brand" id="product_brand" class="form-control select_brand">
-                                <option value="0">Chưa xác định</option>
-                                <?php
-                                $sql_brand_list = "SELECT * FROM brand ORDER BY brand_id DESC";
-                                $query_brand_list = mysqli_query($mysqli, $sql_brand_list);
-                                while ($row_brand = mysqli_fetch_array($query_brand_list)) {
-                                ?>
-                                    <option value="<?php echo $row_brand['brand_id'] ?>"><?php echo $row_brand['brand_name'] ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="input-item form-group">
-                            <label for="product_capacity" class="d-block">Dung tích sản phẩm</label>
+                            <label for="product_capacity" class="d-block">Cân nặng</label>
                             <select name="product_capacity" id="product_capacity" class="form-control select_capacity">
                                 <option value="0">Chưa xác định</option>
                                 <?php

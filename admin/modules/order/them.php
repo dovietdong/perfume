@@ -79,7 +79,7 @@ $order_code = rand(0, 9999);
                                                     <td><?php echo $order_item['product_name'] ?></td>
                                                     <td class="text-center"><?php echo $order_item['product_quantity'] ?></td>
                                                     <td class="text-center"><?php echo $order_item['product_sale'] ?>%</td>
-                                                    <td class="text-right"><?php echo number_format($order_item['product_price'] - ($order_item['product_price'] / 100 * $order_item['product_sale'])) . ' ₫' ?></td>
+                                                    <td class="text-right"><?php echo number_format($order_item['product_price'] - ($order_item['product_price'] / 100 * $order_item['product_sale'])) . ' $' ?></td>
                                                 </tr>
                                             <?php
                                             }
@@ -107,7 +107,7 @@ $order_code = rand(0, 9999);
                                 </table>
                             </div>
                             <div class="w-100 text-right">
-                                <p>Tổng tiền: <?php echo number_format((float) $total) . '₫' ?></p>
+                                <p>Tổng tiền: <?php echo number_format((float) $total) . '$' ?></p>
                             </div>
                         </div>
                         <div class="w-100 d-flex align-center space-between">

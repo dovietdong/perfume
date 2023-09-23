@@ -25,29 +25,9 @@ $query_product_edit = mysqli_query($mysqli, $sql_product_edit);
                                 <label for="title" class="d-block">Tên sản phẩm</label>
                                 <input type="text" name="product_name" class="d-block form-control" value="<?php echo $row['product_name'] ?>" placeholder="product name">
                             </div>
+                            
                             <div class="input-item form-group">
-                                <label for="title" class="d-block">Thương hiệu sản phẩm</label>
-                                <select name="product_brand" id="product_brand" class="form-control select_brand">
-                                    <option value="0">Chưa xác định</option>
-                                    <?php
-                                    $sql_brand_list = "SELECT * FROM brand ORDER BY brand_id DESC";
-                                    $query_brand_list = mysqli_query($mysqli, $sql_brand_list);
-                                    while ($row_brand = mysqli_fetch_array($query_brand_list)) {
-                                        if ($row['product_brand'] == $row_brand['brand_id']) {
-                                    ?>
-                                            <option value="<?php echo $row_brand['brand_id'] ?>" selected><?php echo $row_brand['brand_name'] ?></option>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <option value="<?php echo $row_brand['brand_id'] ?>"><?php echo $row_brand['brand_name'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="input-item form-group">
-                                <label for="title" class="d-block">Dung tích sản phẩm</label>
+                                <label for="title" class="d-block">Cân nặng</label>
                                 <select name="product_capacity" id="product_capacity" class="form-control select_capacity">
                                     <option value="0">Chưa xác định</option>
                                     <?php
@@ -106,7 +86,7 @@ $query_product_edit = mysqli_query($mysqli, $sql_product_edit);
                                     </figure>
                                     <input type="file" class="d-none" id="product_image" name="product_image" accept="image/*">
                                     <label class="label-for-image" for="product_image">
-                                        <i class="fas fa-upload"></i> &nbsp; Chọn hình ảnh
+                                        <i class="fas fa-upload"></i> &nbsp; Chọn hình ảnh 
                                     </label>
                                 </div>
                             </div>

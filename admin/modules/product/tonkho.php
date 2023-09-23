@@ -64,7 +64,7 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                                     <td><img src="modules/product/uploads/<?php echo $row['product_image'] ?>" class="product_image" alt="image"></td>
                                     <td><?php echo $row['product_name'] ?></td>
                                     <td class="<?php echo format_quantity_style($row['product_quantity']) ?>"><?php echo $row['product_quantity'] ?></td>
-                                    <td><?php echo number_format($row['product_price']) . ' ₫' ?></td>
+                                    <td><?php echo number_format($row['product_price']) . ' $' ?></td>
                                     <td>
                                         <?php if ($row['product_status'] == 1) {
                                         ?>

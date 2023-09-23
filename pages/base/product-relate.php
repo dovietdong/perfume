@@ -87,11 +87,11 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                                     <?php
                                     if ($row['product_sale'] > 0) {
                                     ?>
-                                        <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' ₫' ?></del>
+                                        <del class="product__price--old h5"><?php echo number_format($row['product_price']) . ' $' ?></del>
                                     <?php
                                     }
                                     ?>
-                                    <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale'])) . ' ₫') ?></span>
+                                    <span class="product__price--new h4"><?php echo (number_format($row['product_price'] - ($row['product_price'] / 100 * $row['product_sale'])) . ' $') ?></span>
                                 </div>
                             </a>
                         </div>

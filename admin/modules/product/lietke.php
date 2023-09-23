@@ -163,7 +163,7 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                                     </td>
                                     <td class="<?php if ($row['product_price'] < $row['product_price_import']) {
                                                     echo "text-danger";
-                                                } ?>"><?php echo number_format($row['product_price']) . ' ₫' ?></td>
+                                                } ?>"><?php echo number_format($row['product_price']) . ' $' ?></td>
                                     <td><?php echo $row['product_sale'] ?>%</td>
                                 </tr>
                             <?php

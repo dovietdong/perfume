@@ -84,7 +84,7 @@ $query_product_list = mysqli_query($mysqli, $sql_product_list);
                                         }
                                         ?>
                                     </td>
-                                    <td><?php echo number_format($row['product_price']) . ' ₫' ?></td>
+                                    <td><?php echo number_format($row['product_price']) . ' $' ?></td>
                                     <td><?php echo $row['product_sale'] ?>%</td>
                                 </tr>
                             <?php
